@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<style>
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+
+
+.topleft {
+    position: absolute;
+    top: 0;
+  font-family: "Book Antiqua", Times, serif;
+font-size: 40px;
+left: 33%;
+}
+
+
+.bgimg {
+    background-image: url('1.gif');
+    height: 100%;
+    
+    background-size: cover;
+    position: relative;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+}
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+hr {
+    margin: auto;
+    width: 40%;
+}
+countdown {
+ position: absolute;
+font-family: "Times New Roman", Courier, monospace;
+   left: 20%;
+}
+p.serif {
+    font-family: "Times New Roman", Times, serif;
+}
+</style>
+<body>
+
+<div class="bgimg">
+  <div class = "topleft">
+    <p>JWH  Web Template</p>
+  </div>
+  <div class="middle">
+    <h1>COMING SOON</h1>
+    <hr>
+
+    <p id ="demo" class ="countdown"></p>
+<script>
+var countdown = new Date("December 1, 2018 00:00:00").getTime();
+
+
+var x = setInterval(function() {
+
+   
+    var now = new Date().getTime();
+    
+    
+    var distance = countdown - now;
+    
+   
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    
+    document.getElementById("demo").innerHTML = days + "days " + hours + "hours "
+    + minutes + "minutes " + seconds + "seconds";
+    
+    
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
+
+<p class ="serif">December 2018</p>
+</div>
+
+
+  </div>
+  
+</body>
+</html>
